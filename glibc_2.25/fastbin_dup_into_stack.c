@@ -45,7 +45,7 @@ int main()
 	stack_var = 0x20;
 
 	fprintf(stderr, "Now, we overwrite the first 8 bytes of the data at %p to point right before the 0x20.\n", a);
-	*d = (unsigned long long) (((char*)&stack_var) - sizeof(d));
+	*d = (unsigned long long) (((char*)&stack_var) + sizeof(d));
 
 	fprintf(stderr, "3rd malloc(8): %p, putting the stack address on the free list\n", malloc(8));
 	fprintf(stderr, "4th malloc(8): %p\n", malloc(8));
